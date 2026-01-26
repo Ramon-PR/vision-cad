@@ -5,4 +5,4 @@ d = { 'settings': { 'branch': 'master',
                 'doc_host': 'https://Ramon-PR.github.io',
                 'git_url': 'https://github.com/Ramon-PR/vision-cad',
                 'lib_path': 'vision_cad'},
-  'syms': {}}
+  'syms': {'vision_cad.live_camera_feed': {}}}

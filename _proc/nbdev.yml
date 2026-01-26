@@ -3,7 +3,7 @@ project:
 
 website:
   title: "vision-cad"
-  site-url: "https://ramonpr.github.io/vision-cad"
+  site-url: "https://Ramon-PR.github.io/vision-cad"
   description: "Repo to use artificial vision to compare a product with its CAD model"
   repo-branch: master
-  repo-url: "https://github.com/ramonpr/vision-cad"
+  repo-url: "https://github.com/Ramon-PR/vision-cad"
