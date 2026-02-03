@@ -5,4 +5,11 @@ d = { 'settings': { 'branch': 'master',
                 'doc_host': 'https://Ramon-PR.github.io',
                 'git_url': 'https://github.com/Ramon-PR/vision-cad',
                 'lib_path': 'vision_cad'},
-  'syms': {'vision_cad.live_camera_feed': {}}}
+  'syms': { 'vision_cad.Untitled-1': {},
+            'vision_cad.camera_calibration': { 'vision_cad.camera_calibration.calibrate_camera_from_chessboard_images': ( 'camera_calibration.html#calibrate_camera_from_chessboard_images',
+                                                                                                                          'vision_cad/camera_calibration.py'),
+                                               'vision_cad.camera_calibration.capture_calibration_images': ( 'camera_calibration.html#capture_calibration_images',
+                                                                                                             'vision_cad/camera_calibration.py'),
+                                               'vision_cad.camera_calibration.object_points_cheesboard_grid': ( 'camera_calibration.html#object_points_cheesboard_grid',
+                                                                                                                'vision_cad/camera_calibration.py')},
+            'vision_cad.live_camera_feed': {}}}
