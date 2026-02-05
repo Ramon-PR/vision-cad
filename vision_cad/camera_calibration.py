@@ -9,15 +9,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 import glob
 import os
+from pathlib import Path
 
 # %% ../nbs/01_camera_calibration.ipynb #f93c4663
-def capture_calibration_images(num_images=20):
+def capture_calibration_images(num_images=20, res_width=2560, res_height=1440):
     """ 
     Capture images from the webcam for camera calibration.
     Press SPACE to capture an image, ESC to quit.
     Images are saved in the 'calibration_images' directory.
+    Inputs:
+        num_images: Pictures to be taken
+        res_width: Resolution of the with of the picture taken by the camera in pixels
+        res_height: Resolution of the height of the picture taken by the camera in pixels
     """
     cap = cv2.VideoCapture(0)
+
+    # Set the resolution of the camera. OpenCV default is 640x480
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, res_width)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, res_height)
+
     if not cap.isOpened():
         print("Cannot open camera")
         return
