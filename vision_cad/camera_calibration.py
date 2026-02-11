@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 # %% ../nbs/01_camera_calibration.ipynb #f93c4663
-def capture_calibration_images(num_images=20, res_width=2560, res_height=1440):
+def capture_calibration_images(num_images=20, res_width=2560, res_height=1440, camera_identifier=0):
     """ 
     Capture images from the webcam for camera calibration.
     Press SPACE to capture an image, ESC to quit.
@@ -22,8 +22,9 @@ def capture_calibration_images(num_images=20, res_width=2560, res_height=1440):
         num_images: Pictures to be taken
         res_width: Resolution of the with of the picture taken by the camera in pixels
         res_height: Resolution of the height of the picture taken by the camera in pixels
+        camera_identifier: Integer or string identifier for the camera (default is 0)
     """
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(camera_identifier)
 
     # Set the resolution of the camera. OpenCV default is 640x480
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, res_width)
@@ -33,7 +34,9 @@ def capture_calibration_images(num_images=20, res_width=2560, res_height=1440):
         print("Cannot open camera")
         return
     
-    os.makedirs('calibration_images', exist_ok=True)
+    save_dir = Path('calibration_images').resolve()
+    os.makedirs(save_dir, exist_ok=True)
+    print(f"Saving calibration images to: {save_dir}")
     count = 0
     
     while count < num_images:
@@ -49,7 +52,7 @@ def capture_calibration_images(num_images=20, res_width=2560, res_height=1440):
         
         key = cv2.waitKey(1)
         if key == 32:  # Space
-            cv2.imwrite(f'calibration_images/image_{count:02d}.png', frame)
+            cv2.imwrite(f'{save_dir}/image_{count:02d}.png', frame)
             count += 1
             print(f'Captured image {count}')
         elif key == 27:  # ESC
